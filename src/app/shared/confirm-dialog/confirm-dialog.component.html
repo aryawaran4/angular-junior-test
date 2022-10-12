@@ -1,0 +1,16 @@
+<div class="w-72">
+    <p mat-dialog-title class="text-lg font-medium">
+        {{ data.title }}
+    </p>
+    <p class="text-base font-normal py-4 pt-2">
+        are you sure want to delete {{ data.message }} <span class="font-bold">{{data.name}}</span> ?
+    </p>
+    <div class="float-right flex gap-4 items-center">
+      <button mat-button style="background:white; color: #004aad;" class="w-fit" (click)="close()"> 
+        <span class="flex items-center justify-center p-1 text-sm">No</span> 
+      </button>
+      <button mat-button style="background:#004aad; color: white;" class="w-fit shadow-md" (click)="deleteData()"> 
+        <span class="flex items-center justify-center p-1 text-sm">Yes</span> 
+      </button>
+  </div>
+</div>

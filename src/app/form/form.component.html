@@ -1,0 +1,100 @@
+<form [formGroup]="form" class="w-[720px] flex flex-col">
+    <div class="flex justify-between items-center mb-4">
+        <p class="font-semibold text-xl" *ngIf="dialogType === 'add'">Add Company Staff for CASTORAMA France SAS</p>
+        <p class="font-semibold text-xl" *ngIf="dialogType === 'edit'">Edit Company Staff for CASTORAMA France SAS</p>
+        <span mat-dialog-close class="cursor-pointer"><mat-icon>close</mat-icon></span>
+    </div>
+
+    <div class="w-full">        
+        <div class="w-full flex gap-4 items-center">
+            <mat-form-field appearance="outline" class="w-1/3">
+                <mat-label>Mail</mat-label>
+                <input matInput type="email" formControlName="email">
+            </mat-form-field>
+            <button mat-button [disabled]="buttonState || dialogType === 'edit'" (click)="emailCheck()" mat-raised-button color="primary" class="py-2 px-4"> <mat-icon class="relative bottom-0.5 mr-1">check_circle_outline</mat-icon> Check email availability </button>
+        </div>
+        <div class="w-full flex mt-2">
+            <p style="color: red;" class="text-xs" [style.visibility]="form.get('email')?.hasError('required') && form.get('email')?.touched ? 'visible' : 'hidden'">Email can't be empty</p>
+        </div>
+    </div>
+
+    <div class="w-full flex gap-4 items-center">
+        <div class="w-1/3">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Civility</mat-label>
+                <mat-select formControlName="civility">
+                  <mat-option value="MR">Mr</mat-option>
+                  <mat-option value="MRS">Mrs</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="w-full flex mt-2">
+                <p style="color: red;" class="text-xs" [style.visibility]="form.get('civility')?.hasError('required') && form.get('civility')?.touched ? 'visible' : 'hidden'">Civility can't be empty</p>
+            </div>
+        </div>
+        <div class="w-1/3">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>First Name</mat-label>
+                <input matInput type="text" formControlName="first_name">
+            </mat-form-field>
+            <div class="w-full flex mt-2">
+                <p style="color: red;" class="text-xs" [style.visibility]="form.get('first_name')?.hasError('required') && form.get('first_name')?.touched ? 'visible' : 'hidden'">First name can't be empty</p>
+            </div>
+        </div>
+        <div class="w-1/3">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Last Name</mat-label>
+                <input matInput type="text" formControlName="last_name">
+            </mat-form-field>
+            <div class="w-full flex mt-2">
+                <p style="color: red;" class="text-xs" [style.visibility]="form.get('last_name')?.hasError('required') && form.get('last_name')?.touched ? 'visible' : 'hidden'">Last name can't be empty</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full flex gap-4 items-center">
+        <div class="w-1/3">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>Company</mat-label>
+                <mat-select formControlName="company">
+                  <mat-option value="MCDONALD">MCDONALD</mat-option>
+                  <mat-option value="Company">Company</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="w-full flex mt-2">
+                <p style="color: red;" class="text-xs" [style.visibility]="form.get('company')?.hasError('required') && form.get('company')?.touched ? 'visible' : 'hidden'">Company can't be empty</p>
+            </div>
+        </div>
+    
+        <div class="w-1/3">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>User Type</mat-label>
+                <mat-select formControlName="user_type">
+                  <mat-option value="HR">HR</mat-option>
+                  <mat-option value="Mentor">Mentor</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="w-full flex mt-2">
+                <p style="color: red;" class="text-xs" [style.visibility]="form.get('user_type')?.hasError('required') && form.get('user_type')?.touched ? 'visible' : 'hidden'">User type can't be empty</p>
+            </div>
+        </div>
+
+        <div class="w-1/3">
+            <mat-form-field appearance="outline" class="w-full">
+                <mat-label>User Status</mat-label>
+                <mat-select formControlName="user_status">
+                  <mat-option value="active">active</mat-option>
+                  <mat-option value="pending">pending</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="w-full flex mt-2">
+                <p style="color: red;" class="text-xs" [style.visibility]="form.get('user_status')?.hasError('required') && form.get('user_status')?.touched ? 'visible' : 'hidden'">User status can't be empty</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="flex justify-end w-full gap-4">
+        <button mat-button mat-dialog-close class="py-1 px-4 w-fit">Cancel</button>
+        <button mat-button class="py-1 px-4 rounded-md shadow-md w-fit" mat-raised-button color="primary" [disabled]="buttonState === false && dialogType === 'add'" (click)="submit()">Submit</button>    
+    </div>
+</form>
