@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# Cara untuk menjalankan aplikasi
+1. Lakukan setup untuk json-server nya terlebih dahulu dengan cara "npm install -g json-server".
+
+2. Kemudian lakukan clone repo ini pada local komputer anda.
+
+3. Setelah selesai, masuk ke direktori repo tersebut menggunakan CLI.
+
+4. Kemudian lakukan run json-server nya dengan cara "json-server --watch mentor.json".
+
+5. Lakukan instalasi module npm dengan cara "npm install" pada CLI.
+
+6. Setelah selesai, run Angular project nya dengan cara "npm start".
